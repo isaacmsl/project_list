@@ -61,7 +61,7 @@ $ ./build/run_tests
 
 # Authorship
 
-Program developed by Selan (<selan@dimap.ufrn.br>), 2021.1
+Program developed by Selan (<selan.santos@ufrn.br>), 2022.1
 
-&copy; DIMAp/UFRN 2016-2021.
+&copy; DIMAp/UFRN 2016-2022.
 
