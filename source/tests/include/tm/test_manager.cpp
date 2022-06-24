@@ -7,6 +7,8 @@
 
 #include "test_manager.h"
 
+#include <vector>
+
 /*!
  * Updates the test result database.
  * @param key The unique test key, which is the test's name.
@@ -34,7 +36,7 @@ void TestManager::summary(void) const
     // This list helps us to print all the test results in the same order
     // the user specified in his/get client code.
     using hash_item = std::pair< std::string, Entry >;
-    std::vector< hash_item > sorted_list;
+    std::vector<hash_item> sorted_list;
     // Copy the hash table to a vector, so we can sort the item by sequence.
     std::copy ( tests_record.begin(), tests_record.end(), std::back_inserter( sorted_list ) );
     // Sort the vector
@@ -44,19 +46,26 @@ void TestManager::summary(void) const
 
     // Print out the tests result from the sorted list.
     std::cout << "[===========] Running " << n_tests << " from the \""  << test_suite_name << "\" test suite.\n";
-    for ( const auto & t : sorted_list )
+    for ( const auto & [test_name, entry] : sorted_list )
     {
-        print_test_result( t.first, t.second );
-        if ( not t.second.m_enabled ) n_disabled++;
-        else if ( t.second.m_result == TestManager::Entry::result_t::SUCCESS ) n_successful++;
-        else if ( t.second.m_result == TestManager::Entry::result_t::FAILED ) n_failed++;
-        else if ( t.second.m_result == TestManager::Entry::result_t::UNDEFINED ) n_undefined++;
+        print_test_result( test_name, entry );
+        if ( not entry.m_enabled ) n_disabled++;
+        else if ( entry.m_result == TestManager::Entry::result_t::SUCCESS ) n_successful++;
+        else if ( entry.m_result == TestManager::Entry::result_t::FAILED ) n_failed++;
+        else if ( entry.m_result == TestManager::Entry::result_t::UNDEFINED ) n_undefined++;
     }
     std::cout << "[===========] " << n_tests << " tests from the \"" << test_suite_name << "\" test suite ran.\n";
 
     // Final summary
-    if ( n_successful != 0 ) std::cout << "[ "<< "\e[1;32mPASSED\e[0m"    << "    ] " << n_successful << " tests.\n";
-    if ( n_failed != 0 )     std::cout << "[ "<< "\e[1;31mFAILED\e[0m"    << "    ] " << n_failed     << " tests.\n";
-    if ( n_disabled != 0 )   std::cout << "[ "<< "\e[1;36mDISABLED\e[0m"  << "  ] "   << n_disabled   << " tests.\n";
-    if ( n_undefined != 0 )  std::cout << "[ "<< "\e[1;35mUNDEFINED\e[0m" << " ] "    << n_undefined  << " tests.\n";
+    if ( n_successful != 0 ) std::cout << "[ "<< "\33[1;32mPASSED\33[0m"    << "    ] " << n_successful << " tests.\n";
+    if ( n_failed != 0 )     std::cout << "[ "<< "\33[1;31mFAILED\33[0m"    << "    ] " << n_failed     << " tests.\n";
+    // TODO: List here the names of the tests that have failed 
+    /*
+     * [ FAILED ] 2 tests, listed below:
+     * [ FAILED ] test_name_1_goes_here.
+     * [ FAILED ] test_name_1_goes_here.
+     */
+    if ( n_disabled != 0 )   std::cout << "[ "<< "\33[1;36mDISABLED\33[0m"  << "  ] "   << n_disabled   << " tests.\n";
+    // TODO: List here the names of the tests that have failed 
+    if ( n_undefined != 0 )  std::cout << "[ "<< "\33[1;35mUNDEFINED\33[0m" << " ] "    << n_undefined  << " tests.\n";
 }

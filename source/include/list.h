@@ -2,13 +2,10 @@
 #define _LIST_H_
 
 #include <iostream>  // cout, endl
-using std::cout;
-using std::endl;
 
 #include <iterator>  // bidirectional_iterator_tag
 #include <cassert>   // assert()
 #include <algorithm> // copy
-using std::copy;
 #include <cstddef>   // std::ptrdiff_t
 #include <type_traits>
 

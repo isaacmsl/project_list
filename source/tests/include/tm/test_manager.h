@@ -55,18 +55,18 @@ class TestManager {
         /// Prints out the overall result of a single test.
         void print_test_result( const std::string &test_name, const Entry &entry ) const
         {
-            std::cout << "[ " << "\e[1;34mRUN\e[0m" << "       ] " << test_name << "-> " << entry.m_desc << std::endl;
+            std::cout << "[ " << "\33[1;34mRUN\33[0m" << "       ] " << test_name << "-> " << entry.m_desc << std::endl;
             if ( entry.m_enabled == false )
             {
-                std::cout << "[  " << "\e[1;36mDISABLED\e[0m" << " ]\n";
+                std::cout << "[  " << "\33[1;36mDISABLED\33[0m" << " ]\n";
                 return;
             }
             if ( entry.m_result == Entry::result_t::SUCCESS )
-                std::cout << "[        " << "\e[1;32mOK\e[0m" << " ]\n";
+                std::cout << "[        " << "\33[1;32mOK\33[0m" << " ]\n";
             else if ( entry.m_result == Entry::result_t::FAILED )
-                std::cout << "[      "  << "\e[1;31mFAIL\e[0m" << " ] at line " << entry.m_line << ".\n";
+                std::cout << "[      "  << "\33[1;31mFAIL\33[0m" << " ] at line " << entry.m_line << ".\n";
             else if ( entry.m_result == Entry::result_t::UNDEFINED )
-                std::cout << "[ "  << "\e[1;35mUNDEFINED\e[0m" << " ] at line " << entry.m_line << ".\n";
+                std::cout << "[ "  << "\33[1;35mUNDEFINED\33[0m" << " ] at line " << entry.m_line << ".\n";
         }
 
         //=== Public interface.

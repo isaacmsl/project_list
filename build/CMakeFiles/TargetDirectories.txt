@@ -1,7 +1,0 @@
-/Users/selan/Dropbox/Teaching/EDB1/coursework/Sequence_Container/Project_List/ghc/build/CMakeFiles/rebuild_cache.dir
-/Users/selan/Dropbox/Teaching/EDB1/coursework/Sequence_Container/Project_List/ghc/build/CMakeFiles/edit_cache.dir
-/Users/selan/Dropbox/Teaching/EDB1/coursework/Sequence_Container/Project_List/ghc/build/CMakeFiles/run_tests.dir
-/Users/selan/Dropbox/Teaching/EDB1/coursework/Sequence_Container/Project_List/ghc/build/tests/CMakeFiles/rebuild_cache.dir
-/Users/selan/Dropbox/Teaching/EDB1/coursework/Sequence_Container/Project_List/ghc/build/tests/CMakeFiles/edit_cache.dir
-/Users/selan/Dropbox/Teaching/EDB1/coursework/Sequence_Container/Project_List/ghc/build/tests/CMakeFiles/all_tests.dir
-/Users/selan/Dropbox/Teaching/EDB1/coursework/Sequence_Container/Project_List/ghc/build/tests/CMakeFiles/TM.dir
